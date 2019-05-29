@@ -36,6 +36,26 @@ byte rowDataMatrix[8] = {
     B01000010,
     B10000001,
   };
+  byte rowDataMatrix3[8] = {
+    B01100110,
+    B10011001,
+    B10000001,
+    B10000001,
+    B10000001,
+    B01000010,
+    B00100100,
+    B00011000
+  };
+  byte rowDataMatrix4[8] = {
+    B00000010,
+    B00000011,
+    B00000100,
+    B00001000,
+    B00010000,
+    B10100000,
+    B11000000,
+    B11100000
+  };
 int delay_time = 1;
        
 void setup() {
@@ -52,7 +72,7 @@ void loop() {
         for(int i = 0; i < 8 ; i++){
           digitalWrite(latchPin,LOW);
           shiftOut(dataPin, clockPin, MSBFIRST, colDataMatrix[i]);
-          shiftOut(dataPin, clockPin, MSBFIRST, rowDataMatrix2[i]);
+          shiftOut(dataPin, clockPin, MSBFIRST, rowDataMatrix4[i]);
           digitalWrite(latchPin,HIGH);
           delay(delay_time);
           }
@@ -68,7 +88,7 @@ void loop() {
         for(int i = 0; i < 8 ; i++){
           digitalWrite(latchPin,LOW);
           shiftOut(dataPin, clockPin, MSBFIRST, colDataMatrix[i]);
-          shiftOut(dataPin, clockPin, MSBFIRST, rowDataMatrix[i]);
+          shiftOut(dataPin, clockPin, MSBFIRST, rowDataMatrix3[i]);
           digitalWrite(latchPin,HIGH);
           delay(delay_time);
           } 
@@ -84,7 +104,7 @@ void loop() {
         for(int i = 0; i < 8 ; i++){
           digitalWrite(latchPin,LOW);
           shiftOut(dataPin, clockPin, MSBFIRST, colDataMatrix[i]);
-          shiftOut(dataPin, clockPin, MSBFIRST, rowDataMatrix2[i]);
+          shiftOut(dataPin, clockPin, MSBFIRST, rowDataMatrix4[i]);
           digitalWrite(latchPin,HIGH);
           delay(delay_time);
           }
@@ -93,7 +113,7 @@ void loop() {
         for(int i = 0; i < 8 ; i++){
           digitalWrite(latchPin,LOW);
           shiftOut(dataPin, clockPin, MSBFIRST, colDataMatrix[i]);
-          shiftOut(dataPin, clockPin, MSBFIRST, rowDataMatrix[i]);
+          shiftOut(dataPin, clockPin, MSBFIRST, rowDataMatrix3[i]);
           digitalWrite(latchPin,HIGH);
           delay(delay_time);
           } 
