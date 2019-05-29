@@ -42,38 +42,27 @@ pinMode(latchPin,OUTPUT);
 pinMode(clockPin,OUTPUT);
 pinMode(dataPin,OUTPUT);
 pinMode(btnPin,INPUT);
-      for(int i = 0; i < 8 ; i++){
-      digitalWrite(latchPin,LOW);
-      shiftOut(dataPin, clockPin, MSBFIRST, colDataMatrix[i]);
-      shiftOut(dataPin, clockPin, MSBFIRST, rowDataMatrix[i]);
-      digitalWrite(latchPin,HIGH);
-      delay(delay_time);}
 }
 void loop() {
  btnstate=digitalRead(btnPin);
- if(btnstate==HIGH && oldbtn==0 ){
-    if(picstate==0){
+ if(btnstate==HIGH){
       for(int i = 0; i < 8 ; i++){
       digitalWrite(latchPin,LOW);
       shiftOut(dataPin, clockPin, MSBFIRST, colDataMatrix[i]);
       shiftOut(dataPin, clockPin, MSBFIRST, rowDataMatrix2[i]);
       digitalWrite(latchPin,HIGH);
-      delay(delay_time);
-      picstate=1;
-      } 
+      delay(delay_time);}
+    
     }
-     else{
+    else{
       for(int i = 0; i < 8 ; i++){
       digitalWrite(latchPin,LOW);
       shiftOut(dataPin, clockPin, MSBFIRST, colDataMatrix[i]);
       shiftOut(dataPin, clockPin, MSBFIRST, rowDataMatrix[i]);
       digitalWrite(latchPin,HIGH);
-      delay(delay_time);
-      picstate=0;
+      delay(delay_time);} 
     }
-    }
-    oldbtn=btnstate;
-    delay(1);
-   }
+    delay(10);
+ 
  }
 
